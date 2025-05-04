@@ -1,0 +1,37 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: pefii
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+app: pefibot
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: pefibot
+
+stages:
+  default:
+    resolvers:
+      aws-account-1:
+        type: aws
+        profile: vhm205
+        region: ap-southeast-1
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  timeout: 10 # optional, in seconds, default is 6
+  versionFunctions: false # optional, default is true
+  # tracing:
+  #   lambda: true
+
+functions:
+  pefibot:
+    handler: handler.handler
+    events:
+      - httpApi: "*"
+    environment:
+      API_URL: ${env:API_URL}
+      API_KEY: ${env:API_KEY}
+      HOST: ${env:HOST}
+      TELEGRAM_BOT_TOKEN: ${env:TELEGRAM_BOT_TOKEN}
+      OPENAI_API_KEY: ${env:OPENAI_API_KEY}
+    maximumEventAge: 7200
+    maximumRetryAttempts: 2
+    url: true

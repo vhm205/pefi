@@ -1,0 +1,6 @@
+./pefi-admin/node_modules
+./pefi-admin/dist
+./pefi-bot/node_modules
+./pefi-landing/node_modules
+./pefi-serverless/node_modules
+./pefi-serverless/node_modules

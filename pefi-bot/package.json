@@ -1,0 +1,17 @@
+{
+  "name": "pefibot",
+  "version": "1.0.0",
+  "scripts": {
+    "deploy": "serverless deploy function --function pefibot",
+    "logs": "serverless logs --function pefibot",
+    "logs:live": "sls logs -f pefibot -t"
+  },
+  "description": "Pefi bot",
+  "dependencies": {
+    "axios": "^1.8.4",
+    "express": "^4.19.2",
+    "fluent-ffmpeg": "^2.1.3",
+    "openai": "^4.95.1",
+    "serverless-http": "^3.2.0"
+  }
+}
